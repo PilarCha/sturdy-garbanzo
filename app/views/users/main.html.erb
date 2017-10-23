@@ -1,0 +1,36 @@
+<h2>Hi <%=@user.name%></h2>
+<a href="/logout">Logout</a>
+<a href="/all">All Users</a>
+
+<h2>Here is your profile thing</h2>
+<h2><%=@user.description%></h2>
+
+
+<h2>Your Proffessional Network</h2>
+<div class="box">
+  <%@friends.each do |person|%>
+  <a href="/users/<%=person.id%>"><%=person.name%></a><br>
+  <%end%>
+
+</div>
+
+
+<h2>Invitations!</h2>
+<table>
+  <thead>
+    <tr>
+      <th>name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@requested.each do |request|%>
+    <tr>
+      <td> <a href="/users/<%=request.id%>"> <%=request.name%></a></td>
+      <td><a href="/friends/<%=request.id%>/accept" data-method="post">Accept Invite</a>
+      <a href="/friends/<%=request.id%>/ignore" data-method="post">Ignore</a></td>
+    </tr>
+    <%end%>
+
+  </tbody>
+</table>

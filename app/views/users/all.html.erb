@@ -1,0 +1,19 @@
+<a href="/professional_profile">My profile</a>
+<a href="/logout">Logout</a>
+<h2>Users you may want to connect with</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@all.each do |a|%>
+    <tr>
+      <td><a href="/users/<%=a.id%>"><%=a.name%></a></td>
+      <td><a href="/friends/<%=a.id%>" data-method="Post">Connect</a></td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
